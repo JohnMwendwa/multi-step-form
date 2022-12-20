@@ -17,7 +17,16 @@ const INITIAL_DATA: UserData = {
   confirmPassword: "",
 };
 
-const Container = styled.div``;
+const Container = styled.div`
+  position: relative;
+  background-color: white;
+  border: 1px solid black;
+  padding: 2rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+  font-family: arial;
+  max-width: max-content;
+`;
 
 function App() {
   const [data, setData] = useState(INITIAL_DATA);
