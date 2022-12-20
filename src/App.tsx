@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FormEvent } from "react";
 import styled from "styled-components";
 
 import useFormInput from "./hooks/useFormInput";
@@ -62,16 +62,28 @@ function App() {
     <AccountDetailsForm {...data} updateFields={updateFields} />,
   ]);
 
+  const handleNext = (e: FormEvent) => {
+    e.preventDefault();
+    if (!isLastPage) return next();
+
+    alert("Account created successfuly!");
+    setData(INITIAL_DATA);
+  };
+
   return (
     <Container>
-      <form>
+      <form onSubmit={handleNext}>
         <Counter>
           {currentStepIndex + 1} / {steps.length}
         </Counter>
         {currentPage}
 
         <ButtonGroup>
-          {!isFirstPage && <Btn type="button">Back</Btn>}
+          {!isFirstPage && (
+            <Btn type="button" onClick={back}>
+              Back
+            </Btn>
+          )}
 
           <Btn type="submit">{isLastPage ? "Submit" : "Next"}</Btn>
         </ButtonGroup>
