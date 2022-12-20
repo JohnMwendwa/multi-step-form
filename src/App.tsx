@@ -36,6 +36,14 @@ const Counter = styled.div`
   right: 0.5rem;
 `;
 
+const ButtonGroup = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+`;
+const Btn = styled.button``;
+
 function App() {
   const [data, setData] = useState(INITIAL_DATA);
 
@@ -56,10 +64,18 @@ function App() {
 
   return (
     <Container>
-      <Counter>
-        {currentStepIndex + 1} / {steps.length}
-      </Counter>
-      {currentPage}
+      <form>
+        <Counter>
+          {currentStepIndex + 1} / {steps.length}
+        </Counter>
+        {currentPage}
+
+        <ButtonGroup>
+          {!isFirstPage && <Btn type="button">Back</Btn>}
+
+          <Btn type="submit">{isLastPage ? "Submit" : "Next"}</Btn>
+        </ButtonGroup>
+      </form>
     </Container>
   );
 }
