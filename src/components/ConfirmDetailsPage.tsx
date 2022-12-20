@@ -31,6 +31,13 @@ function ConfirmDetailsPage({
   email,
   password,
 }: ConfirmDetailsPageProps) {
+  const pass = password.split("").map((letter, idx) => {
+    if (idx === password.length - 1 && idx !== 0) return letter;
+    return (letter = "*");
+  });
+
+  const hiddenPassword = pass.join("");
+
   return (
     <>
       <Title>Confirm Details</Title>
@@ -42,7 +49,7 @@ function ConfirmDetailsPage({
         <h3>Email :</h3>
         <p>{email}</p>
         <h3>Password</h3>
-        <p>{password}</p>
+        <p>{hiddenPassword}</p>
       </Wrapper>
     </>
   );
