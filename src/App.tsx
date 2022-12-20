@@ -22,6 +22,9 @@ const Container = styled.div``;
 function App() {
   const [data, setData] = useState(INITIAL_DATA);
 
+  const updateFields = (fields: Partial<UserData>) =>
+    setData((prev) => ({ ...prev, ...fields }));
+
   return <Container></Container>;
 }
 
