@@ -30,6 +30,11 @@ const Container = styled.div`
   font-family: arial;
   max-width: max-content;
 `;
+const Counter = styled.div`
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+`;
 
 function App() {
   const [data, setData] = useState(INITIAL_DATA);
@@ -37,12 +42,26 @@ function App() {
   const updateFields = (fields: Partial<UserData>) =>
     setData((prev) => ({ ...prev, ...fields }));
 
-  const { currentPage, currentStepIndex, back, next, isFirstPage, isLastPage } =
-    useFormInput([
-      <AccountDetailsForm {...data} updateFields={updateFields} />,
-    ]);
+  const {
+    currentPage,
+    currentStepIndex,
+    back,
+    next,
+    steps,
+    isFirstPage,
+    isLastPage,
+  } = useFormInput([
+    <AccountDetailsForm {...data} updateFields={updateFields} />,
+  ]);
 
-  return <Container>{currentPage}</Container>;
+  return (
+    <Container>
+      <Counter>
+        {currentStepIndex + 1} / {steps.length}
+      </Counter>
+      {currentPage}
+    </Container>
+  );
 }
 
 export default App;
