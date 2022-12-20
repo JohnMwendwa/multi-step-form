@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 
-export default function useFormInput(steps: []) {
+export default function useFormInput(steps: ReactElement[]) {
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
 
   const back = () => {
@@ -23,7 +23,7 @@ export default function useFormInput(steps: []) {
 
   const isFirstPage = currentStepIndex === 0;
 
-  const isLastPage = currentStepIndex === steps.length;
+  const isLastPage = currentStepIndex === steps.length - 1;
 
   return {
     steps,
