@@ -17,10 +17,15 @@ export default function useFormInput(steps: []) {
     });
   };
 
+  const goTo = (index: number) => {
+    setCurrentStepIndex(index);
+  };
+
   return {
     steps,
     currentStepIndex,
     back,
     next,
+    goTo,
   };
 }
