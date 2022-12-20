@@ -25,6 +25,8 @@ export default function useFormInput(steps: ReactElement[]) {
 
   const isLastPage = currentStepIndex === steps.length - 1;
 
+  const currentPage = steps[currentStepIndex];
+
   return {
     steps,
     currentStepIndex,
@@ -33,5 +35,6 @@ export default function useFormInput(steps: ReactElement[]) {
     goTo,
     isFirstPage,
     isLastPage,
+    currentPage,
   };
 }
