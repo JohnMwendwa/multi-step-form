@@ -23,6 +23,8 @@ export default function useFormInput(steps: []) {
 
   const isFirstPage = currentStepIndex === 0;
 
+  const isLastPage = currentStepIndex === steps.length;
+
   return {
     steps,
     currentStepIndex,
@@ -30,5 +32,6 @@ export default function useFormInput(steps: []) {
     next,
     goTo,
     isFirstPage,
+    isLastPage,
   };
 }
