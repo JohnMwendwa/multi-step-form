@@ -4,6 +4,7 @@ import styled from "styled-components";
 import useFormInput from "./hooks/useFormInput";
 import AccountDetailsForm from "./components/AccountDetailsForm";
 import PasswordDetails from "./components/PasswordDetails";
+import ConfirmDetailsPage from "./components/ConfirmDetailsPage";
 
 interface UserData {
   firstName: string;
@@ -62,6 +63,7 @@ function App() {
   } = useFormInput([
     <AccountDetailsForm {...data} updateFields={updateFields} />,
     <PasswordDetails {...data} updateFields={updateFields} />,
+    <ConfirmDetailsPage {...data} />,
   ]);
 
   const handleNext = (e: FormEvent) => {
