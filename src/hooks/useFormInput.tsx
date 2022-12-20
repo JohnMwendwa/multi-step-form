@@ -10,9 +10,17 @@ export default function useFormInput(steps: []) {
     });
   };
 
+  const next = () => {
+    setCurrentStepIndex((prev) => {
+      if (prev >= steps.length - 1) return prev;
+      return prev + 1;
+    });
+  };
+
   return {
     steps,
     currentStepIndex,
     back,
+    next,
   };
 }
