@@ -21,11 +21,14 @@ export default function useFormInput(steps: []) {
     setCurrentStepIndex(index);
   };
 
+  const isFirstPage = currentStepIndex === 0;
+
   return {
     steps,
     currentStepIndex,
     back,
     next,
     goTo,
+    isFirstPage,
   };
 }
