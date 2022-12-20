@@ -1,6 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 
+import useFormInput from "./hooks/useFormInput";
+import AccountDetailsForm from "./components/AccountDetailsForm";
+
 interface UserData {
   firstName: string;
   lastName: string;
@@ -34,7 +37,12 @@ function App() {
   const updateFields = (fields: Partial<UserData>) =>
     setData((prev) => ({ ...prev, ...fields }));
 
-  return <Container></Container>;
+  const { currentPage, currentStepIndex, back, next, isFirstPage, isLastPage } =
+    useFormInput([
+      <AccountDetailsForm {...data} updateFields={updateFields} />,
+    ]);
+
+  return <Container>{currentPage}</Container>;
 }
 
 export default App;
