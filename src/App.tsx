@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import useFormInput from "./hooks/useFormInput";
 import AccountDetailsForm from "./components/AccountDetailsForm";
+import PasswordDetails from "./components/PasswordDetails";
 
 interface UserData {
   firstName: string;
@@ -60,6 +61,7 @@ function App() {
     isLastPage,
   } = useFormInput([
     <AccountDetailsForm {...data} updateFields={updateFields} />,
+    <PasswordDetails {...data} updateFields={updateFields} />,
   ]);
 
   const handleNext = (e: FormEvent) => {
