@@ -16,6 +16,10 @@ const Wrapper = styled.div`
     margin: 0;
     padding: 0;
   }
+
+  p {
+    margin: 8px 0;
+  }
 `;
 
 interface ConfirmDetailsPageProps {
@@ -48,7 +52,7 @@ function ConfirmDetailsPage({
         <p>{lastName}</p>
         <h3>Email :</h3>
         <p>{email}</p>
-        <h3>Password</h3>
+        <h3>Password :</h3>
         <p>{hiddenPassword}</p>
       </Wrapper>
     </>
