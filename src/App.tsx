@@ -81,7 +81,7 @@ function App() {
     if (!isLastPage) return next();
 
     alert("Account created successfuly!");
-    setData(INITIAL_DATA);
+    // setData(INITIAL_DATA);
   };
 
   return (
