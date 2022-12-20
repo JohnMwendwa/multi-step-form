@@ -1,5 +1,5 @@
 import { useState, FormEvent } from "react";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 import useFormInput from "./hooks/useFormInput";
 import AccountDetailsForm from "./components/AccountDetailsForm";
@@ -21,6 +21,16 @@ const INITIAL_DATA: UserData = {
   password: "",
   confirmPassword: "",
 };
+
+const GlobalStyle = createGlobalStyle`
+body{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:100vh
+}
+`;
 
 const Container = styled.div`
   position: relative;
@@ -76,6 +86,7 @@ function App() {
 
   return (
     <Container>
+      <GlobalStyle />
       <form onSubmit={handleNext}>
         <Counter>
           {currentStepIndex + 1} / {steps.length}
