@@ -26,7 +26,7 @@ function PasswordDetails({
         required
       />
 
-      <label htmlFor="confirm-password">Password :</label>
+      <label htmlFor="confirm-password">Confirm Password :</label>
       <input
         type="password"
         id="confirm-password"
