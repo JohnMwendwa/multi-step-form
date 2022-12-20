@@ -14,6 +14,7 @@ interface AccountDetailsProps extends UserData {
 function AccountDetailsForm({
   firstName,
   lastName,
+  email,
   updateFields,
 }: AccountDetailsProps) {
   return (
@@ -34,6 +35,14 @@ function AccountDetailsForm({
         id="last-name"
         value={lastName}
         onChange={(e) => updateFields({ lastName: e.target.value })}
+        required
+      />
+      <label htmlFor="email">Email :</label>
+      <input
+        type="email"
+        id="email"
+        value={email}
+        onChange={(e) => updateFields({ email: e.target.value })}
         required
       />
     </FormWrapper>
